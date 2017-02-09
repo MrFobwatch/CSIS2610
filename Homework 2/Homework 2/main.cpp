@@ -31,7 +31,7 @@ void outputArray(int array[], int limit){
     cout << endl;
 }
 void outputArrayWithPlaceholders(int array[], int limit){
-    for(int i=0; i<limit; i++) {        
+    for(int i=2; i<limit; i++) {        
         for(int k=0; k<i-1; k++) {
             cout << array[k] << ' ';
         }
@@ -99,7 +99,7 @@ int main(int argc, char** argv) {
     int size1 = 10;
     int array1[size1]; 
     fillArrayWithRandomNumbers(array1, size1, 201, -100);
-    outputArray(array1,size1);
+    //outputArray(array1,size1);
     
     //Problem 2
     int size2 = 10;
