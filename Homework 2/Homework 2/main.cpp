@@ -58,22 +58,6 @@ void sortArraySmall(int array[], int size){
         array[minIndex] = temp;
     }   
 }
-void sortArrayLarge(int array[], int size){
-    for(int i=0; i<size-1; i++){
-        int max = array[i];
-        int maxIndex = i;  
-        
-        for(int j =i+1; j<size; j++){
-            if(array[j] > max){
-                max = array[j];
-                maxIndex = j;
-            }
-        }        
-        int temp = array[i];
-        array[i] = max;
-        array[maxIndex] = temp;
-    }   
-}
 int sumArrayElements(int array[], int limit) {
     int sum;
     for(int i=0; i<limit; i++) {        
@@ -122,88 +106,33 @@ int sum2dArray(int array[][10]){
     return sum;    
 }
 void sort2dArraySmall(int array[][10]){
-    for(int row=0; row<10; row++) {
-        for(int col=0; col<10; col++) {
-            for(int i=0; i<10-1; i++){
-                int min = array[i][col];
-                int minIndex1 = i;  
+    for(int currentRowIndex=0; currentRowIndex<10; currentRowIndex++) {
 
-            for(int j =i+1; j<10; j++){
-                if(array[j][col] < min){
-                    min = array[j][col];
-                    minIndex1 = j;
-                }
-            }        
-            int temp = array[i][col];
-            array[i][col] = min;
-            array[minIndex1][col] = temp;
+        for(int currentRowSlider=0; currentRowSlider<10; currentRowSlider++) {
+
+            for( int currentColIndex=0; currentColIndex<10; currentColIndex++) {
+
+                for(int currentColSlider=0; currentColSlider<10; currentColSlider++) {
+
+                    if(array[currentRowIndex][currentColIndex] < array[currentRowSlider][currentColSlider]) { 
+                        
+                        int temp = array[currentRowIndex][currentColIndex];
+                        array[currentRowIndex][currentColIndex] = array[currentRowSlider][currentColSlider];
+                        array[currentRowSlider][currentColSlider] = temp;   
+                    }
+                }             
             }
         }
     }
 }
-void sort2dArraySmallA(int array[][10]){
-    int temp, minIndexRow, minIndexCol;
-    for(int i=0; i<100; i++) {
-        for(int row=0; row<10; row++) {
-            for(int col=0; col<10; col++) {
-                minIndexRow = row;
-                minIndexCol = col;
-                for(int currentIndexRow=row+1; currentIndexRow<10; currentIndexRow++) {
-                    for(int currentIndexCol=col+1; currentIndexCol<10; currentIndexCol++) {
-                        if(array[currentIndexRow][currentIndexCol] < array[minIndexRow][minIndexCol]) {
-                            minIndexRow = currentIndexRow;
-                            minIndexCol = currentIndexCol;
-                        }
-                    }
-                }
-                if( minIndexRow != row && minIndexCol != col) {
-                    temp = array[row][col];
-                    array[row][col] = array[minIndexRow][minIndexCol];
-                    array[minIndexRow][minIndexCol] = temp;
-                }
-            }
-        }    
-    }
-}
-//    int min, minIndex1, minIndex2;
-//    for(int i=0; i<10-1; i++){
-//        for(int j=0; j<10-1-i; j++){
-//                        
-//            if(array[i][j] < min){
-//                min = array[i][j];
-//                minIndex1 = i;
-//                minIndex2 = j;
-//            }
-//            int temp = array[i][j];
-//            array[i][j] = min;
-//            array[minIndex1][minIndex2] = temp;
-//        }        
-//    }   
-//}
-void sort2dArrayLarge(int array[][10]){
-    for(int i=0; i<10-1; i++){
-        for(int j=0; j<10-1-i; j++){
-            int max = array[i][j];
-            int maxIndex1 = i;
-            int maxIndex2 = j;
-            
-            if(array[i][j] > max){
-                max = array[i][j];
-                maxIndex1 = i;
-                maxIndex2 = j;
-            }
-            int temp = array[i][j];
-            array[i][j] = max;
-            array[maxIndex1][maxIndex2] = temp;
-        }        
-    }   
-}
+
 int main(int argc, char** argv) {
     //Problem 1
     int size1 = 10;
     int array1[size1]; 
     fillArrayWithRandomNumbers(array1, size1, 201, -100);
     outputArray(array1,size1);
+    cout << endl;
     
     //Problem 2
     int size2 = 10;
@@ -215,29 +144,23 @@ int main(int argc, char** argv) {
     int size3 = 100;
     int array3[size3];
     fillArrayWithRandomNumbers(array3, size3, 201, -100);
-    sortArrayLarge(array3, size3);
+    sortArraySmall(array3, size3);
     cout << "Sum of Array3 is " << sumArrayElements(array3, size3) << endl;
-    cout << "Average of Array3 is " << sumArrayElements(array3, size3) / 2 << endl;
-    sortArraySmall(array3, size3);
+    cout << "Average of Array3 is " << sumArrayElements(array3, size3) / size3 << endl;
     cout << "Min of Array3 is " << array3[0] << endl;
-    sortArrayLarge(array3, size3);
-    cout << "Max of Array3 is " << array3[0] << endl;
-    sortArraySmall(array3, size3);
+    cout << "Max of Array3 is " << array3[size3-1] << endl;
     cout << "Median of Array3 is " << medianArrayElements(array3, size3) << endl << endl;
     
     //Problem 4
     int size4 = 10;
     int array4[10][10];
-    fill2dArrayWithRandomNumbers(array4, 201, -100);
-    //sort2dArrayLarge(array4);
-    output2dArray(array4, size4);
-    
+    fill2dArrayWithRandomNumbers(array4, 201, -100);    
     sort2dArraySmall(array4);
-    output2dArray(array4, size4);
-    
-    sort2dArraySmallA(array4);
-    output2dArray(array4, size4);
-    cout << sum2dArray(array4) << endl;;
+    cout << "Sum of Array4 is " << sum2dArray(array4) << endl;
+    cout << "Average of Array4 is " << sum2dArray(array4)/(size4*size4) << endl;
+    cout << "Min of Array4 is " << array4[0][0] << endl;
+    cout << "Max of Array4 is " << array4[9][9] << endl;
+    cout << "Median of Array4 is " << endl;
     
     return 0;
 }
