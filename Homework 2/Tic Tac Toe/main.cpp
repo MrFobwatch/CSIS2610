@@ -13,17 +13,19 @@ using namespace std;
 /*
  * Tic Tac Toe Game
  */
-int board[3][3]; //Game board is stored without any labels or lines
+string board[3][3] = {{"X","X","X"},{"X","X","X"},{"X","X","X"}};
+//Game board is stored without any labels or lines
 
 void displayBoard(){
     for(int x=0; x<3; x++) {
         for(int y=0; y<3; y++) {
-            
+            cout << board[x][y] << "\t";
         }
+        cout << endl;
     }
 }
 
-void placeCharacter(int x, int y){
+void placeCharacter(int x, int y,int side){ //Given a coordinate it places a character
     board[x][y];
     
 }
@@ -32,8 +34,9 @@ void comPlayer(){
     
 }
 int main(int argc, char** argv) {
-    char player = 'X';
-    char computer = 'O';
+    char player = 'X'; // Side 1
+    char computer = 'O'; //Side 2
+    displayBoard();
     
     
 

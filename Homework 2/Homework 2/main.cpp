@@ -93,6 +93,7 @@ int medianArrayElements(int array[], int limit) {
     else if(limit % 2 == 0) {
         median = (array[bottomIndex] + array[upperIndex])/2;
     }
+    return median;
 }
 //2d Arrays
 void fill2dArrayWithRandomNumbers(int array2d[][10],int range, int offset){
@@ -109,10 +110,20 @@ void output2dArray(int array[][10], int limit){
         }
         cout << endl;
     }
+    cout << endl;
+}
+int sum2dArray(int array[][10]){
+    int sum = 0;
+    for(int col=0; col<10; col++) {
+        for(int row=0; row<10; row++) {
+            sum = array[row][col] + sum;            
+        }
+    }
+    return sum;    
 }
 void sort2dArraySmall(int array[][10]){
     for(int row=0; row<10; row++) {
-        for(int col=0; col<10; col ++) {
+        for(int col=0; col<10; col++) {
             for(int i=0; i<10-1; i++){
                 int min = array[i][col];
                 int minIndex1 = i;  
@@ -131,30 +142,27 @@ void sort2dArraySmall(int array[][10]){
     }
 }
 void sort2dArraySmallA(int array[][10]){
-    int min;
-    for(int col=0; col<10; col++) {
-        for(int row=0; row<10; row ++) {
-            for(int i=row; i<10-1; i++){
-                int min = array[i][col];
-                int minIndex1 = i;  
-
-            for(int j =i+1; j<10; j++){
-                if(array[j][col] < min){
-                    min = array[j][col];
-                    minIndex1 = j;
+    int temp, minIndexRow, minIndexCol;
+    for(int i=0; i<100; i++) {
+        for(int row=0; row<10; row++) {
+            for(int col=0; col<10; col++) {
+                minIndexRow = row;
+                minIndexCol = col;
+                for(int currentIndexRow=row+1; currentIndexRow<10; currentIndexRow++) {
+                    for(int currentIndexCol=col+1; currentIndexCol<10; currentIndexCol++) {
+                        if(array[currentIndexRow][currentIndexCol] < array[minIndexRow][minIndexCol]) {
+                            minIndexRow = currentIndexRow;
+                            minIndexCol = currentIndexCol;
+                        }
+                    }
                 }
-            }        
-            int temp = array[i][col];
-            array[i][col] = min;
-            array[minIndex1][col] = temp;
+                if( minIndexRow != row && minIndexCol != col) {
+                    temp = array[row][col];
+                    array[row][col] = array[minIndexRow][minIndexCol];
+                    array[minIndexRow][minIndexCol] = temp;
+                }
             }
-            for(int k =col+1; k<10; k++){
-                if(array[row][k] < min){
-                    min = array[row][k];
-                    int minIndex2 = k;
-                }
-            }     
-        }
+        }    
     }
 }
 //    int min, minIndex1, minIndex2;
@@ -195,7 +203,7 @@ int main(int argc, char** argv) {
     int size1 = 10;
     int array1[size1]; 
     fillArrayWithRandomNumbers(array1, size1, 201, -100);
-    //outputArray(array1,size1);
+    outputArray(array1,size1);
     
     //Problem 2
     int size2 = 10;
@@ -215,7 +223,7 @@ int main(int argc, char** argv) {
     sortArrayLarge(array3, size3);
     cout << "Max of Array3 is " << array3[0] << endl;
     sortArraySmall(array3, size3);
-    cout << "Median of Array3 is " << medianArrayElements(array3, size3) << endl;
+    cout << "Median of Array3 is " << medianArrayElements(array3, size3) << endl << endl;
     
     //Problem 4
     int size4 = 10;
@@ -223,19 +231,13 @@ int main(int argc, char** argv) {
     fill2dArrayWithRandomNumbers(array4, 201, -100);
     //sort2dArrayLarge(array4);
     output2dArray(array4, size4);
-    cout << endl;
     
     sort2dArraySmall(array4);
     output2dArray(array4, size4);
-    cout << endl;
     
     sort2dArraySmallA(array4);
     output2dArray(array4, size4);
-    
-    
-    
-    
-    
+    cout << sum2dArray(array4) << endl;;
     
     return 0;
 }
