@@ -66,7 +66,7 @@ int sumArrayElements(int array[], int limit) {
     return sum;
 }
 int medianArrayElements(int array[], int limit) {
-    int median;
+    double median;
     int medianIndex;
     int bottomIndex = limit/2;
     int upperIndex = ((limit)/2)+1;
@@ -125,7 +125,29 @@ void sort2dArraySmall(int array[][10]){
         }
     }
 }
-
+int median2dArray(int array[][10], int limitRow, int limitCol){
+    double median, medianLow; //Median is also the Higher median if even number of elements 
+    int medianColIndex, medianRowIndex;
+    int totalElements = limitRow*limitCol;
+    int bottomIndex = ((totalElements)/2)-1; //49
+    int upperIndex = (totalElements)/2; //Also the Median Index for odd- numbered arrays //50
+    
+    if (totalElements % 2 == 1) {
+        medianRowIndex = upperIndex/limitRow;       // 50/10=5  array[5][]
+        medianColIndex = upperIndex%limitCol;       // 50%10=0 array[][0] 
+        median = array[medianRowIndex][medianColIndex];
+    }
+    else if(totalElements % 2 == 0) {
+        medianRowIndex = upperIndex/limitRow;       // 50/10=5  array[5][]
+        medianColIndex = upperIndex%limitCol;       // 50%10=0 array[][0] 
+        median = array[medianRowIndex][medianColIndex];
+        medianRowIndex = bottomIndex/limitRow;          // 49/10=4  array[4][]
+        medianColIndex = bottomIndex%limitCol;          // 49%10=9 array[][9] 
+        medianLow = array[medianRowIndex][medianColIndex];
+        median = (median+medianLow)/2;
+    }
+    return median;
+}
 int main(int argc, char** argv) {
     //Problem 1
     int size1 = 10;
@@ -160,7 +182,7 @@ int main(int argc, char** argv) {
     cout << "Average of Array4 is " << sum2dArray(array4)/(size4*size4) << endl;
     cout << "Min of Array4 is " << array4[0][0] << endl;
     cout << "Max of Array4 is " << array4[9][9] << endl;
-    cout << "Median of Array4 is " << endl;
+    cout << "Median of Array4 is " << median2dArray(array4, size4, size4) << endl;
     
     return 0;
 }
