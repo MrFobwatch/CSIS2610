@@ -27,8 +27,7 @@ char o = 'O'; //Side 2
 #define position3  board[8]
 
 void displayBoard(){
-    cout << "\r";
-    cout << "\t TIC   TAC   TOE" << endl << endl;
+    cout << endl << "\t TIC   TAC   TOE" << endl << endl;
     
     cout << "\t  " << position7 << "  |  " << position8 << "  |  " << position9 << "  " << endl;
     cout << "\t_____|_____|_____" << endl;
