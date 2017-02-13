@@ -61,7 +61,7 @@ void sortArraySmall(int array[], int size){
 int sumArrayElements(int array[], int limit) {
     int sum;
     for(int i=0; i<limit; i++) {        
-        sum = array[i] + sum;
+        sum += array[i];
     }
     return sum;
 }
@@ -100,7 +100,7 @@ int sum2dArray(int array[][10]){
     int sum = 0;
     for(int col=0; col<10; col++) {
         for(int row=0; row<10; row++) {
-            sum = array[row][col] + sum;            
+            sum += array[row][col];            
         }
     }
     return sum;    

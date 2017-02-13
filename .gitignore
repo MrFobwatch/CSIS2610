@@ -6,3 +6,7 @@
 *.d
 
 *.exe
+/Homework 2/Tic Tac Toe/build/
+/Homework 2/Tic Tac Toe/dist/
+/Homework 2/Homework 2/dist/
+/Homework 2/Homework 2/build/

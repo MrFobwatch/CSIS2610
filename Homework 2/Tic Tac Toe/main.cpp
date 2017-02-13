@@ -88,7 +88,7 @@ void john(char marker) {
         placeCharacter(9, marker);
     } 
 }
-int main(int argc, char** argv) {
+int tic(int argc, char** argv) {
     displayBoard();
     //john();
     autoPlace(x);
