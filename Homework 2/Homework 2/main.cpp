@@ -135,17 +135,28 @@ void sort2dArrayQSmall(int array[][10], int size){
             jMinIndex = j;
             
             for(int k=j+1; k<size; k++) {
+                if(array[i][k] < min) {
+                    min = array[i][k];
+                    iMinIndex = i;
+                    jMinIndex = k;
+                }
                 
             }
             
             for(int k=i+1; k<size; k++) {
                 for(int l=j; l<size; l++) {
+                    if(array[k][l] < min) {
+                    min = array[k][l];
+                    iMinIndex = k;
+                    jMinIndex = l;
+                    }
                     
                 }
             }
         }
     }
 }
+    
 double median2dArray(int array[][10], int limitRow, int limitCol){
     double median, medianLow; //Median is also the Higher median if even number of elements 
     int medianColIndex, medianRowIndex;
@@ -170,7 +181,7 @@ double median2dArray(int array[][10], int limitRow, int limitCol){
     return median;
 }
 int main(int argc, char** argv) {
-    srand(time(NULL));
+    //srand(time(NULL));
     
     //Problem 1
     int size1 = 10;
