@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <cmath>
+#include <ctime>
 
 using namespace std;
 
@@ -65,7 +66,7 @@ int sumArrayElements(int array[], int limit) {
     }
     return sum;
 }
-int medianArrayElements(int array[], int limit) {
+double medianArrayElements(int array[], int limit) {
     double median;
     int medianIndex;
     int bottomIndex = limit/2;
@@ -125,7 +126,27 @@ void sort2dArraySmall(int array[][10]){
         }
     }
 }
-int median2dArray(int array[][10], int limitRow, int limitCol){
+void sort2dArrayQSmall(int array[][10], int size){
+    int min, iMinIndex, jMinIndex;
+    for(int i=0; i<size; i++) {
+        for(int j=0; j<size; j++) {
+            min = array[i][j];
+            iMinIndex = i;
+            jMinIndex = j;
+            
+            for(int k=j+1; k<size; k++) {
+                
+            }
+            
+            for(int k=i+1; k<size; k++) {
+                for(int l=j; l<size; l++) {
+                    
+                }
+            }
+        }
+    }
+}
+double median2dArray(int array[][10], int limitRow, int limitCol){
     double median, medianLow; //Median is also the Higher median if even number of elements 
     int medianColIndex, medianRowIndex;
     int totalElements = limitRow*limitCol;
@@ -149,6 +170,8 @@ int median2dArray(int array[][10], int limitRow, int limitCol){
     return median;
 }
 int main(int argc, char** argv) {
+    srand(time(NULL));
+    
     //Problem 1
     int size1 = 10;
     int array1[size1]; 
@@ -168,7 +191,7 @@ int main(int argc, char** argv) {
     fillArrayWithRandomNumbers(array3, size3, 201, -100);
     sortArraySmall(array3, size3);
     cout << "Sum of Array3 is " << sumArrayElements(array3, size3) << endl;
-    cout << "Average of Array3 is " << sumArrayElements(array3, size3) / size3 << endl;
+    cout << "Average of Array3 is " << (sumArrayElements(array3, size3)) / size3 << endl;
     cout << "Min of Array3 is " << array3[0] << endl;
     cout << "Max of Array3 is " << array3[size3-1] << endl;
     cout << "Median of Array3 is " << medianArrayElements(array3, size3) << endl << endl;
@@ -176,8 +199,11 @@ int main(int argc, char** argv) {
     //Problem 4
     int size4 = 10;
     int array4[10][10];
-    fill2dArrayWithRandomNumbers(array4, 201, -100);    
+    fill2dArrayWithRandomNumbers(array4, 201, -100);
+    output2dArray(array4, size4);
     sort2dArraySmall(array4);
+    cout << endl;
+    output2dArray(array4, size4);
     cout << "Sum of Array4 is " << sum2dArray(array4) << endl;
     cout << "Average of Array4 is " << sum2dArray(array4)/(size4*size4) << endl;
     cout << "Min of Array4 is " << array4[0][0] << endl;
