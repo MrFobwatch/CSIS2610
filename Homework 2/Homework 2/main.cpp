@@ -106,14 +106,14 @@ int sum2dArray(int array[][10]){
     }
     return sum;    
 }
-void sort2dArraySmall(int array[][10]){
-    for(int currentRowIndex=0; currentRowIndex<10; currentRowIndex++) {
+void sort2dArraySmall(int array[][10], int size){
+    for(int currentRowIndex=0; currentRowIndex<size; currentRowIndex++) {
 
-        for(int currentRowSlider=0; currentRowSlider<10; currentRowSlider++) {
+        for(int currentRowSlider=0; currentRowSlider<size; currentRowSlider++) {
 
-            for( int currentColIndex=0; currentColIndex<10; currentColIndex++) {
+            for( int currentColIndex=0; currentColIndex<size; currentColIndex++) {
 
-                for(int currentColSlider=0; currentColSlider<10; currentColSlider++) {
+                for(int currentColSlider=0; currentColSlider<size; currentColSlider++) {
 
                     if(array[currentRowIndex][currentColIndex] < array[currentRowSlider][currentColSlider]) { 
                         
@@ -212,7 +212,7 @@ int main(int argc, char** argv) {
     int array4[10][10];
     fill2dArrayWithRandomNumbers(array4, 201, -100);
     output2dArray(array4, size4);
-    sort2dArraySmall(array4);
+    sort2dArraySmall(array4,size4);
     cout << endl;
     output2dArray(array4, size4);
     cout << "Sum of Array4 is " << sum2dArray(array4) << endl;
