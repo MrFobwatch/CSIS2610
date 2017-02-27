@@ -200,7 +200,9 @@ int main(int argc, char** argv) {
     int size3 = 100;
     int array3[size3];
     fillArrayWithRandomNumbers(array3, size3, 201, -100);
+    //outputArray(array3,size3);
     sortArraySmall(array3, size3);
+    //outputArray(array3,size3);
     cout << "Sum of Array3 is " << sumArrayElements(array3, size3) << endl;
     cout << "Average of Array3 is " << (sumArrayElements(array3, size3)) / size3 << endl;
     cout << "Min of Array3 is " << array3[0] << endl;
