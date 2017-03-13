@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -35,7 +36,7 @@ bool checkNumber(int number,int low, int high) {
     }
 }
 */
-const int maxSize = 10;
+const int maxSize = 3;
 int size = 0;
 int addIndex = 0;
 
@@ -57,6 +58,7 @@ bool add(int number,int queue[]) {
     }
     return added;
 }
+
 void fillQueueWithRandomNumbers(int queue[], int range, int offset){
     for(int i=0; i<maxSize; i++){
         add(createRandomNumber(range, offset), queue);
@@ -78,16 +80,64 @@ int remove(int queue[]) {
     }
     return number;
 }
+
 void outputQueue(int queue[]) {
     for(int i=0; i < size; i++) {
         cout << queue[i] << " ";
     }
     cout << endl;
 }
-void printQueue(int queue) {
-    explicit queue<int> temp = queue;
+
+void printQueue(queue<int>q) {
+    queue<int>temp = q;
     while (!temp.empty()) {
-        std::cout << ' ' << temp.front();
+        cout << temp.front() << ' ';
+        temp.pop();
+    }
+  cout << '\n';
+}
+
+//STACK CODE
+int stackIndex = 0;
+
+bool push(int number, int stack[]) {
+    bool pushed = false;
+    if(size < maxSize) {
+        stack[stackIndex]= number;
+        stackIndex++;
+        size++;
+        pushed = true;
+    }// end if
+    return pushed;
+}
+
+int pop(int stack[]) {
+    int number = -1000;
+    
+    if(size>0) {
+        stackIndex--;
+        number = stack[stackIndex];
+        size--;
+        stackIndex--;        
+    }
+    return number;
+}
+
+void clear(int stack[]) {
+    stackIndex = 0;
+    size = 0;
+}
+
+void fillStackWithRandomNumbers(int stack[], int amount, int range, int offset){
+    for(int i=0; i<amount; i++){
+        push(createRandomNumber(range, offset), stack);
+    }
+}
+
+void printStack(stack<int>s) {
+    stack<int> temp (s);
+    while (!temp.empty()) {
+        cout << temp.top() << ' ';
         temp.pop();
     }
   cout << '\n';
@@ -107,16 +157,36 @@ int main(int argc, char** argv) {
     }
 */
     int myqueue[maxSize];
-    queue<int> numbers;
     fillQueueWithRandomNumbers(myqueue, 100, 1);
-    outputQueue(myqueue);
+    //outputQueue(myqueue);
     //add(7, myqueue);
+    int stackarray[15];
+    int value;
+    clear(stackarray);
+    cout << "Stack Size = " << size << endl;
+    push(10, stackarray);
+    push(20, stackarray);
+    cout << "Stack Size = " << size << endl;
+    value = pop(stackarray);
+    cout << "Stack Popped " << value << endl;
+    fillStackWithRandomNumbers(stackarray, 15, 100, 1);
+    value = pop(stackarray);
+    cout << "Stack Popped " << value << endl;
+    value = pop(stackarray);
+    cout << "Stack Popped " << value << endl;
+    clear(stackarray);
+    cout << "Stack Size = " << size << endl;
     
     
+    //Template Code
+    queue<int> numbers;
+    numbers.push(3);
+    numbers.push(7);
+    printQueue(numbers);
     
-    
-    //numbers.push(3);
-   // numbers.push(7);
-    //printQueue(numbers);
+    stack<int> numstack;
+    numstack.push(4);
+    numstack.push(3);
+    printStack(numstack);
     return 0;    
 }
