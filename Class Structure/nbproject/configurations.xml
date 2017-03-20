@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>car.h</itemPath>
       <itemPath>instructor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -13,7 +14,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>instructor.cpp</itemPath>
+      <itemPath>Instructor.cpp</itemPath>
+      <itemPath>car.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -39,7 +41,11 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="instructor.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Instructor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="car.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="car.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="instructor.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -67,7 +73,11 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="instructor.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Instructor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="car.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="car.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="instructor.h" ex="false" tool="3" flavor2="0">
       </item>
