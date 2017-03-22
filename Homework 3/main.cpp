@@ -7,6 +7,8 @@
 
 #include <cstdlib>
 #include <iostream>
+#include "person.h"
+#include "myQueue.h"
 
 using namespace std;
 
@@ -14,6 +16,7 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
+    Person person;
 
     return 0;
 }

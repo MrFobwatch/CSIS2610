@@ -28,6 +28,6 @@ string Person::getLastName() {
     return lastName;
 }
 
-void Person::getFullName() {
+string Person::getFullName() {
     return firstName + " " + lastName;
 }
