@@ -1,0 +1,40 @@
+1) Create a class called MyCalculator - 50 pts
+	- Add the following functions
+		- an add function that adds a number to the total
+		- a subtract function that subtracts a number from the total
+		- a multiplication function that multiplies the total by a number
+		- a division function that divides the total by a number
+		- a get total function that returns the total
+		- a clear total function that clears the total
+		- a Add to Memory function that adds a number to the memory total
+		- a Subtract from Memory function that subtracts a number from memory total
+		- a Clear Memory function that clears the memory total
+		- a Get Total Memory function that return the memory total
+		- Test all your functions in main
+
+
+2) Create a class called Person - 10pts
+	- Add the following functions
+		- get/set id
+		- get/set first name
+		- get/set last name
+		- get full name (First name + space + last name)
+		- Test all your functions in main
+
+3) Create a class called MyQueue - 20 pts
+	- Add the following functions
+		- an add function that adds a number
+		- a remove function that removes a number (FIFO)
+		- a get size function that returns the number elements in the queue
+		- a clear function that clears the queue
+		- a peek function that returns the first element without removing it from the queue
+		- Test all your functions in main
+
+4) Create a class called MyStack - 20 pts
+	- Add the following functions
+		- an push function that adds a number
+		- a pop function that removes a number (FILO)
+		- a get size function that returns the number elements in the stack
+		- a clear function that clears the stack
+		- a peek function that returns the top element without removing it from the stack
+		- Test all your functions in main
