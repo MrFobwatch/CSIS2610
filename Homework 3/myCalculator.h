@@ -31,6 +31,7 @@ public:
     
 private:
     double total;
+    double totalM;
 
 };
 
