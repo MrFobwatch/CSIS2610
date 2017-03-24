@@ -31,5 +31,35 @@ bool Stack::push(int number) {
 }
 
 int Stack::pop() {
+    int number = -2000;
     
+    if(size>0) {
+        stackIndex--;
+        number = stack[stackIndex];
+        size--;
+        stackIndex--;        
+    }
+    
+    return number;
+}
+
+int Stack::peek() {
+    int number = -2000;
+    
+    if(size>0) {
+        stackIndex--;
+        number = stack[stackIndex];
+        stackIndex++;        
+    }
+    
+    return number;
+}
+
+int Stack::getSize() {
+    return size;
+}
+
+void Stack::clear() {
+    size = 0;
+    stackIndex = 0;
 }

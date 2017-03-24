@@ -17,6 +17,9 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     Person person;
+    Queue queue;
+    Stack stack;
+    
 
     return 0;
 }
