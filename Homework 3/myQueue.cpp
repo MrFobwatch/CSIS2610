@@ -1,6 +1,8 @@
 #include <iostream>
 #include "myQueue.h"
 
+using namespace std;
+
 Queue::Queue() {
     maxSize = 2000;
     size = 0;
@@ -18,7 +20,7 @@ bool Queue::add(int number) {
     }//end if
     
     else {
-        std::cout << "Queue is FULL" << std::endl;
+        cout << "Queue is FULL" << endl;
     }
     return added;
 }
@@ -30,11 +32,10 @@ int Queue::peek() {
     }//end if
     
     else {
-        std::cout << "Queue is EMPTY" << std::endl;
+        cout << "Queue is EMPTY" << endl;
     }
     
-    return number;
-    
+    return number;    
 }
 
 int Queue::remove() {
@@ -51,7 +52,7 @@ int Queue::remove() {
     }//end if
     
     else {
-        std::cout << "Queue is EMPTY" << std::endl;
+        cout << "Queue is EMPTY" << endl;
     }
     
     return number;
