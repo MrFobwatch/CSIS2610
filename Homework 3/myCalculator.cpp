@@ -14,6 +14,7 @@
 #include "myCalculator.h"
 
 Calculator::Calculator() {
+    total = 0;
 }
 
 double Calculator::add(double number) {

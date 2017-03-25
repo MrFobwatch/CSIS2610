@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     
     //Calculator Class Examples
     cout << "Calculator Test" << endl;
-    calc.add(25);
+    calc.add(30);
     cout << calc.getTotal() << endl;
     calc.sub(25);
     cout << calc.getTotal() << endl;
