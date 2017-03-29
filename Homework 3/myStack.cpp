@@ -37,7 +37,15 @@ int Stack::pop() {
         stackIndex--;
         number = stack[stackIndex];
         size--;
-        stackIndex--;        
+        
+    }
+//    else if(size>0) {
+//        stackIndex--;
+//        number = stack[stackIndex];
+//        size = 0;
+//    }
+    else if(size=0) {
+        cout << "Stack is EMPTY" << endl;
     }
     
     return number;

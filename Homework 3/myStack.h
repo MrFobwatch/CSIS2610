@@ -30,7 +30,7 @@ private:
     int maxSize;
     int size;
     int stackIndex;
-    int stack[2000];
+    int stack[5];
 };
 
 #endif /* MYSTACK_H */

@@ -67,6 +67,7 @@ int main(int argc, char** argv) {
     queue.output();
             cout << queue.getSize() << endl
             << queue.peek() << endl;
+    
     queue.clear();
     
     cout << queue.peek() << endl 
@@ -74,9 +75,11 @@ int main(int argc, char** argv) {
     
     //Stack Class Examples
     cout << stack.push(100) << "," << stack.push(200) << "," << stack.push(300) << endl;
-    cout << stack.pop() << endl
-            << stack.getSize() << endl
-            << stack.peek() << endl;
+    cout << stack.getSize() << " Assert 3" << endl;
+    cout << stack.pop() << " Assert 300" << endl 
+            << stack.getSize() << " Assert 2"<< endl 
+            << stack.pop() << " Assert 200" << endl
+            << stack.getSize() << " Assert 1" << endl;
     
     stack.clear();
     

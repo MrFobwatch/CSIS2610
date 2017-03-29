@@ -4,7 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>car.h</itemPath>
       <itemPath>driverLicense.h</itemPath>
+      <itemPath>owner.h</itemPath>
       <itemPath>person.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -14,8 +16,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>car.cpp</itemPath>
       <itemPath>driverLicense.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>owner.cpp</itemPath>
       <itemPath>person.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -41,11 +45,19 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="car.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="car.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="driverLicense.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="driverLicense.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="owner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="owner.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="person.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -73,11 +85,19 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="car.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="car.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="driverLicense.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="driverLicense.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="owner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="owner.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="person.cpp" ex="false" tool="1" flavor2="0">
       </item>

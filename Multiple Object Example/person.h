@@ -26,6 +26,7 @@ public:
     int getAge();
     void setDriverLicense(DriverLicense driverLicense);
     DriverLicense getDriverLicense();
+    void outputDetails();
     
 private:
     string firstName;
