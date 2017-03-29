@@ -38,10 +38,10 @@ int Person::getAge() {
     return age;
 }
 
-void setDriverLicense(DriverLicense driverLicense) {
+void Person::setDriverLicense(DriverLicense driverLicense) {
     this->driverLicense = driverLicense;
 }
 
-DriverLicense getDriverLicense() {
+DriverLicense Person::getDriverLicense() {
     return driverLicense;
 }
