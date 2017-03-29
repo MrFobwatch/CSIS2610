@@ -7,6 +7,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <stdio.h>
 
 #include "myCalculator.h"
 #include "person.h"
@@ -66,7 +67,6 @@ int main(int argc, char** argv) {
     queue.output();
             cout << queue.getSize() << endl
             << queue.peek() << endl;
-    
     queue.clear();
     
     cout << queue.peek() << endl 
