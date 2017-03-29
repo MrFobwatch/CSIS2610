@@ -44,8 +44,8 @@ int Queue::remove() {
         number = queue[0];
         addIndex--;
         
-        for(int i=1; i<size; i++) {
-            queue[i-1] = queue[i];
+        for(int i=0; i<size; i++) {
+            queue[i] = queue[i+1];
         }// end i loop
         
         size--;
@@ -65,4 +65,11 @@ int Queue::getSize() {
 void Queue::clear() {
     size = 0;
     addIndex = 0;
+}
+
+void Queue::output() {
+    for(int i=0; i < size; i++) {
+        cout << queue[i] << " ";
+    }
+    cout << endl;
 }

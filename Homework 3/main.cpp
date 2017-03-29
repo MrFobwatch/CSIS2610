@@ -61,8 +61,10 @@ int main(int argc, char** argv) {
     cout << "Queue Test" << endl;
     
     cout << queue.add(10) << "," << queue.add(20) << "," << queue.add(30) << endl;
-    cout << queue.remove() << endl
-            << queue.getSize() << endl
+    queue.output();
+    cout << queue.remove() << endl;
+    queue.output();
+            cout << queue.getSize() << endl
             << queue.peek() << endl;
     
     queue.clear();

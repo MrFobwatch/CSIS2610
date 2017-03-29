@@ -20,6 +20,7 @@ public:
     int remove();
     int getSize();
     void clear();
+    void output();
     
 private:
     int maxSize;
