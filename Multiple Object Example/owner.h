@@ -20,13 +20,12 @@ public:
     void setDriver(Person driver);
     Person getDriver();
     bool addCar(Car car);
-    void outputDetails;
-    int size;
+    void outputDetails();
     
 private:
     Person driver;
     Car cars[5];
-    
+    int size;
     int addIndex;
     int removeIndex;
 };

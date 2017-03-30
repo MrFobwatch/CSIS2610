@@ -23,6 +23,7 @@ public:
     string getColor();
     void setYear(int year);
     int getYear();
+    void outputCarDetail();
     
 private:    
     string make;

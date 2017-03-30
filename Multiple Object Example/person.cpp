@@ -45,3 +45,10 @@ void Person::setDriverLicense(DriverLicense driverLicense) {
 DriverLicense Person::getDriverLicense() {
     return driverLicense;
 }
+
+void Person::outputDetails() {
+    cout << "Name: " << getFullName() << " (" << age << ")" << endl;
+    cout << "Driver License Info" << endl;
+    cout << "Number: " << driverLicense.getNumber() << " | "; 
+    cout << "Valid for " << driverLicense.getValidYears() << " Years" << endl;
+}

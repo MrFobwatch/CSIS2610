@@ -9,6 +9,7 @@
 #include "driverLicense.h"
 
 DriverLicense::DriverLicense() {
+    
 }
 
 void DriverLicense::setNumber(string number) {

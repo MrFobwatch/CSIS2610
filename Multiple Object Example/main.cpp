@@ -27,23 +27,25 @@ int main(int argc, char** argv) {
     driverLicense.setValidYears(4);
     
     person.setDriverLicense(driverLicense);
-    Owner owner;
     
-    for(int i=1; i<owner.size; i++) {
+    Owner owner;
+    owner.setDriver(person);
+    
+    for(int i=1; i<2; i++) {
         Car cars;
         
         string make;
-        cout << "Enter Make: "; 
+        cout << "Enter Make: " << endl; 
         cin >> make;
         cars.setMake(make);
 
         string model;
-        cout << "Enter Model: ";
+        cout << "Enter Model: " << endl;
         cin >> model;
         cars.setModel(model);
         
         int year;
-        cout << "Enter Year: ";
+        cout << "Enter Year: " << endl;
         cin >> year;
         cars.setYear(year);
         owner.addCar(cars);

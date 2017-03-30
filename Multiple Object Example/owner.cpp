@@ -19,7 +19,7 @@ bool Owner::addCar(Car car) {
     bool added = false;
     
     if(size < 5) {
-        car[addIndex] = car;
+        cars[addIndex] = car;
         size++;
         addIndex++;
         added = true;
@@ -27,10 +27,10 @@ bool Owner::addCar(Car car) {
     return added;
 }
 
-//void Owner::outputDetails() {
-//    driver.outputDetails();
-//    
-//    for(int i=0; i<size; i++) {
-//        cars[i].outputDetails()
-//    }
-//}
+void Owner::outputDetails() {
+    driver.outputDetails();
+    
+    for(int i = 0; i < size; i++) {
+        cars[i].outputCarDetail();
+    }
+}

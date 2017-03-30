@@ -34,3 +34,10 @@ int Car::getYear() {
 void Car::setYear(int year) {
     this->year = year;
 }
+
+void Car::outputCarDetail() {
+    cout << "Make: " << make << endl;
+    cout << "Model: " << model << endl;
+    cout << "Year: " << year << endl;
+    cout << "Color: " << color << endl;
+}
