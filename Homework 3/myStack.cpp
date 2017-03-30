@@ -15,16 +15,16 @@
 
 Stack::Stack() {
     maxSize = 2000;
-    size = 0;
-    stackIndex = 0;
+//    size = 0;
+//    stackIndex = 0;
 }
 
 bool Stack::push(int number) {
     bool pushed = false;
     if(size < maxSize) {
-        stack[stackIndex]= number;
-        stackIndex++;
+        stack[stackIndex++]= number;
         size++;
+//        stackIndex++;
         pushed = true;
     }// end if
     return pushed;    
@@ -33,21 +33,22 @@ bool Stack::push(int number) {
 int Stack::pop() {
     int number = -2000;
     
-    if(size>0) {
-        stackIndex--;
-        number = stack[stackIndex];
+//    if(size>0) {
+//        stackIndex--;
+        number = stack[--stackIndex];
+
         size--;
         
-    }
+//    }
 //    else if(size>0) {
 //        stackIndex--;
 //        number = stack[stackIndex];
 //        size = 0;
 //    }
-    else if(size=0) {
-        cout << "Stack is EMPTY" << endl;
-    }
-    
+////    else if(size=0) {
+//        cout << "Stack is EMPTY" << endl;
+//    }
+//    
     return number;
 }
 

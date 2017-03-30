@@ -65,6 +65,8 @@ int main(int argc, char** argv) {
     queue.output();
     cout << queue.remove() << endl;
     queue.output();
+    cout << queue.remove() << endl;
+    
             cout << queue.getSize() << endl
             << queue.peek() << endl;
     
@@ -83,8 +85,8 @@ int main(int argc, char** argv) {
     
     stack.clear();
     
-    cout << stack.peek() << endl
-            << endl;
+//    cout << stack.peek() << endl
+//            << endl;
     return 0;
 }
 
