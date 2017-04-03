@@ -22,33 +22,36 @@ Stack::Stack() {
 bool Stack::push(int number) {
     bool pushed = false;
     if(size < maxSize) {
-        stack[stackIndex++]= number;
+        stack[stackIndex]= number;
         size++;
-//        stackIndex++;
+        stackIndex++;
         pushed = true;
     }// end if
+    
+    else if(size==maxSize) {
+        cout << "Stack is FULL" << endl;
+    }
     return pushed;    
 }
 
 int Stack::pop() {
     int number = -2000;
     
-//    if(size>0) {
-//        stackIndex--;
-        number = stack[--stackIndex];
-
+    if(size>0) {
+        stackIndex--;
+        number = stack[stackIndex];
         size--;
         
-//    }
-//    else if(size>0) {
+    }
+//    if(size>0) {
 //        stackIndex--;
 //        number = stack[stackIndex];
 //        size = 0;
 //    }
-////    else if(size=0) {
-//        cout << "Stack is EMPTY" << endl;
-//    }
-//    
+    else if(size==0) {
+        cout << "Stack is EMPTY" << endl;
+    }
+    
     return number;
 }
 
@@ -71,4 +74,14 @@ int Stack::getSize() {
 void Stack::clear() {
     size = 0;
     stackIndex = 0;
+}
+
+void Stack::debug() {
+    cout << "stackIndex: " << stackIndex << endl;
+    cout << "size: " << size << endl;
+    cout << "Stack: ";
+    for(int i=0; i < size; i++) {
+        cout << stack[i] << " ";
+    }
+    cout << endl;
 }

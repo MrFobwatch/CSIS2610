@@ -76,13 +76,17 @@ int main(int argc, char** argv) {
             << endl;
     
     //Stack Class Examples
+    cout << "Stack Test" << endl;
     cout << stack.push(100) << "," << stack.push(200) << "," << stack.push(300) << endl;
-    cout << stack.getSize() << " Assert 3" << endl;
-    cout << stack.pop() << " Assert 300" << endl 
-            << stack.getSize() << " Assert 2"<< endl 
-            << stack.pop() << " Assert 200" << endl
-            << stack.getSize() << " Assert 1" << endl;
-    
+    cout << stack.getSize() << " Assert Size 3" << endl;
+    stack.debug();
+    cout << stack.pop() << " Assert 300" << endl; 
+    stack.debug();
+    cout << stack.getSize() << " Assert Size 2"<< endl; 
+    cout << stack.pop() << " Assert Value 200" << endl;
+    stack.debug();
+    cout << stack.getSize() << " Assert Size 1" << endl;
+    cout << stack.pop() << " Assert Value 100" << endl;
     stack.clear();
     
 //    cout << stack.peek() << endl
