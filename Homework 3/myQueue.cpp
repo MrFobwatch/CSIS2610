@@ -4,18 +4,19 @@
 using namespace std;
 
 Queue::Queue() {
-    maxSize = 2000;
-    size = 0;
+    maxSize = 4;
+    elementCount = 0;
     addIndex = 0;
+    removeIndex = 0;
 }
 
 bool Queue::add(int number) {
     bool added = false;
     
-    if(size < maxSize) {
+    if(elementCount < maxSize) {
         queue[addIndex] = number;
         addIndex++;
-        size++;
+        elementCount++;
         added = true;
     }//end if
     
@@ -27,8 +28,8 @@ bool Queue::add(int number) {
 
 int Queue::peek() {
     int number = -2000;
-    if(size > 0) {
-        number = queue[0];
+    if(elementCount > 0) {
+        number = queue[removeIndex];
     }//end if
     
     else {
@@ -40,15 +41,13 @@ int Queue::peek() {
 
 int Queue::remove() {
     int number = -2000;
-    if(size > 0) {
-        number = queue[0];
-        addIndex--;
+    if(elementCount > 0) {
+        number = queue[removeIndex];
+//        addIndex;
+        removeIndex;
         
-        for(int i=0; i<size; i++) {
-            queue[i] = queue[i+1];
-        }// end i loop
         
-        size--;
+        elementCount--;
     }//end if
     
     else {
@@ -59,16 +58,16 @@ int Queue::remove() {
 }
 
 int Queue::getSize() {
-    return size;
+    return elementCount;
 }
 
 void Queue::clear() {
-    size = 0;
+    elementCount = 0;
     addIndex = 0;
 }
 
 void Queue::output() {
-    for(int i=0; i < size; i++) {
+    for(int i=0; i < elementCount; i++) {
         cout << queue[i] << " ";
     }
     cout << endl;

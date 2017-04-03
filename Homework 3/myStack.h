@@ -25,7 +25,7 @@ public:
     int peek();
     int getSize();
     void clear();
-   
+
 private:
     int maxSize;
     int size;
