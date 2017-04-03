@@ -25,12 +25,11 @@ public:
     int peek();
     int getSize();
     void clear();
-    int stackIndex = 0;
-    int size= 0;
+    
 private:
     int maxSize;
-   
-    
+    int stackIndex;
+    int size;    
     int stack[5];
 };
 

@@ -15,8 +15,8 @@
 
 Stack::Stack() {
     maxSize = 2000;
-//    size = 0;
-//    stackIndex = 0;
+    size = 0;
+    stackIndex = 0;
 }
 
 bool Stack::push(int number) {
