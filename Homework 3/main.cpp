@@ -77,6 +77,7 @@ int main(int argc, char** argv) {
     
     //Stack Class Examples
     cout << "Stack Test" << endl;
+    
     cout << stack.push(100) << "," << stack.push(200) << "," << stack.push(300) << endl;
     cout << stack.getSize() << " Assert Size 3" << endl;
     stack.debug();
