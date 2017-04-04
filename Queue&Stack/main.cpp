@@ -118,7 +118,7 @@ int pop(int stack[]) {
         stackIndex--;
         number = stack[stackIndex];
         size--;
-        stackIndex--;        
+               
     }
     return number;
 }
@@ -167,13 +167,10 @@ int main(int argc, char** argv) {
     push(10, stackarray);
     push(20, stackarray);
     cout << "Stack Size = " << size << endl;
-    value = pop(stackarray);
-    cout << "Stack Popped " << value << endl;
-    fillStackWithRandomNumbers(stackarray, 15, 100, 1);
-    value = pop(stackarray);
-    cout << "Stack Popped " << value << endl;
-    value = pop(stackarray);
-    cout << "Stack Popped " << value << endl;
+    cout << "Stack Popped " << pop(stackarray) << endl;
+//    fillStackWithRandomNumbers(stackarray, 15, 100, 1);
+    cout << "Stack Popped " << pop(stackarray) << endl;
+    cout << "Stack Popped " << pop(stackarray) << endl;
     clear(stackarray);
     cout << "Stack Size = " << size << endl;
     
@@ -184,9 +181,9 @@ int main(int argc, char** argv) {
     numbers.push(7);
     printQueue(numbers);
     
-    stack<int> numstack;
-    numstack.push(4);
-    numstack.push(3);
-    printStack(numstack);
+//    stack<int> numstack;
+//    numstack.push(4);
+//    numstack.push(3);
+//    printStack(numstack);
     return 0;    
 }
