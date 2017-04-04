@@ -24,10 +24,10 @@ public:
     
 private:
     int maxSize;
-    int elementCount;
+    int size;
     int addIndex;
     int removeIndex;
-    int queue[4];
+    int queue[10];
 };
 
 #endif	/* MYQUEUE_H */

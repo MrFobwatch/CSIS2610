@@ -60,27 +60,25 @@ int main(int argc, char** argv) {
 
     //Queue Class Examples
     cout << "Queue Test" << endl;
-    
-    cout << queue.add(10) << "," << queue.add(20) << "," << queue.add(30) << endl;
+    queue.add(10);
+    queue.add(20);
+    queue.add(30);
+    //cout << queue.add(10) << "," << queue.add(20) << "," << queue.add(30) << endl;
     queue.output();
-    cout << queue.remove() << endl;
+    cout << queue.remove() << " Assert 10" << endl;
     queue.output();
-    cout << queue.remove() << endl;
-    
-            cout << queue.getSize() << endl
-            << queue.peek() << endl;
-    
-    queue.clear();
-    
-    cout << queue.peek() << endl 
-            << endl;
+    cout << queue.getSize() << " Assert 2" << endl;
+    cout << queue.remove() << " Assert 20" << endl;
+    cout << queue.getSize() << " Assert 1" << endl;
+    cout << queue.peek() << " Assert 30" << endl;
+    queue.clear();    
+    cout << queue.peek() <<  " Assert Empty" << endl << endl;
     
     //Stack Class Examples
     cout << "Stack Test" << endl;
     stack.push(100);
     stack.push(200);
     stack.push(300);
-//    cout << stack.push(100) << "," << stack.push(200) << "," << stack.push(300) << endl;
     cout << stack.getSize() << " Assert Size 3" << endl;
 //    stack.debug();
     cout << stack.pop() << " Assert 300" << endl; 
@@ -92,8 +90,8 @@ int main(int argc, char** argv) {
     cout << stack.pop() << " Assert Value 100" << endl;
     stack.clear();
     
-//    cout << stack.peek() << endl
-//            << endl;
+    cout << stack.peek() << endl
+            << endl;
     return 0;
 }
 

@@ -28,7 +28,7 @@ bool Stack::push(int number) {
         pushed = true;
     }// end if
     
-    else if(size=maxSize) {
+    else if(size==maxSize) {
         cout << "Stack is FULL" << endl;
     }
     return pushed;    
@@ -64,7 +64,7 @@ int Stack::peek() {
         stackIndex++;        
     }
     
-    else if(size=maxSize) {
+    else if(size==maxSize) {
         cout << "Stack is FULL" << endl;
     }
     return number;
