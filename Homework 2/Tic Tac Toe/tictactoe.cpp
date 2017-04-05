@@ -10,7 +10,16 @@
 #define position3  board[8]
 
 TicTacToe::TicTacToe() {
-    board[9] = {'7','8','9','4','5','6','1','2','3'};
+    position7 = '7';
+    position8 = '8';
+    position9 = '9';
+    position4 = '4';
+    position5 = '5';
+    position6 = '6';
+    position1 = '1';
+    position2 = '2';
+    position3 = '3';
+    
     playerOneWin = false;
     playerTwoWin = false;
     turnCounter = 0;    
@@ -29,9 +38,16 @@ void TicTacToe::displayBoard() {
 }
 
 void TicTacToe::clearBoard() {
-    board[9] = {'7','8','9','4','5','6','1','2','3'};
+    for (int i=0; i< 9; i++) {
+        board[i]= '-';
+    }
+//    board[0]= '7';
+//    board= 
+//    //{'7','8','9','4','5','6','1','2','3'};
+    
     playerOneWin = false;
     playerTwoWin = false;
+    marker = 'X';
     
 }
 

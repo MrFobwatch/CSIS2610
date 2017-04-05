@@ -14,7 +14,8 @@ using namespace std;
  * TIC TAC TOE GAME
  */
 int main() {
-
+    TicTacToe tictactoe;
+    tictactoe.checkEnd();
     return 0;
 }
 
