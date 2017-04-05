@@ -108,14 +108,14 @@ void TicTacToe::checkWin() {
     turnCounter++;
     
     if(turnCounter >= 5) {
-        if((position1 == position2 == position3) ||
-                position4 == position5 == position6 ||
-                position7 == position8 == position9 ||
-                position1 == position4 == position7 ||
-                position2 == position5 == position8 ||
-                position3 == position6 == position9 ||
-                position1 == position5 == position9 ||
-                position3 == position5 == position7) {
+        if((position1 == position2 == position3)  == marker||
+                position4 == position5 == position6 == marker||
+                position7 == position8 == position9 == marker||
+                position1 == position4 == position7 == marker||
+                position2 == position5 == position8 == marker||
+                position3 == position6 == position9 == marker||
+                position1 == position5 == position9 == marker||
+                position3 == position5 == position7 == marker) {
             if(marker == 'X') {
                 playerOneWin = true;
                 end = true;
