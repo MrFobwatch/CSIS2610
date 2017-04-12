@@ -14,9 +14,14 @@
 class Player {
 public:
     Player();
+    void setBounty(Deck bounty);
+    Deck getBounty() const;
+    void setDraw(Deck draw);
+    Deck getDraw() const;
     Card playCard();
-    void collectWinnings(Deck field);
-    void refillDraw();
+//    void collectWinnings(Deck field);
+    void fillDraw(Deck fill);
+    void emptyBounty();
     
 private:
     Deck draw;

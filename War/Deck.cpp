@@ -12,16 +12,27 @@
 Deck::Deck() {
 }
 
+void Deck::setDeckCards(std::deque<Card> deckCards) {
+    this->deckCards = deckCards;
+}
+
+std::deque<Card> Deck::getDeckCards() const {
+    return deckCards;
+}
+
 void Deck::shuffleDeck() {
     std::random_shuffle(deckCards.begin(), deckCards.end());
 }
 
-void Deck::appendCard(Card card) {
-    deckCards.push_back(card);
-}
+//void Deck::push_back(Card card) {
+//    deckCards.push_back(card);
 
-Card Deck::removeCard() {
+Card Deck::removeTopCard() {
     Card topCard = deckCards.front();
     deckCards.pop_front();
     return topCard;
+}
+
+int Deck::size() {
+    deckCards.size();
 }

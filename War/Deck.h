@@ -17,12 +17,23 @@ class Deck {
     
 public:
     Deck();
+    void setDeckCards(std::deque<Card> deckCards);
+    std::deque<Card> getDeckCards() const;
+//    ~Deck();
     void shuffleDeck();
-    Card removeCard();
+    Card removeTopCard();
     void appendCard(Card card);
+//    Card front();
+//    Card back();
+//    void push_back(Card card);
+//    void push_front(Card card);
+//    void pop_back();
+//    void pop_front();
+//    void clear();
+    int size();
     
 private:
-    int size;
+//    int size;
     std::deque<Card> deckCards;
 };
 
