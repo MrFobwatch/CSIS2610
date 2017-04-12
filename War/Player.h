@@ -14,10 +14,13 @@
 class Player {
 public:
     Player();
+    Card playCard();
+    void collectWinnings(Deck field);
+    void refillDraw();
     
 private:
-//    Deck draw;
-//    Deck bounty;
+    Deck draw;
+    Deck bounty;
     
 };
 

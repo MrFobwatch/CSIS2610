@@ -14,14 +14,18 @@
 class War {
 public:
     War();
-    void createDeck();
-    void separateDeck();
+    void createMainDeck();
+    void separateMainDeck();
     void displayRound();
-    Card draw();
+    void turn();
+    Player roundWinner();
+    
     
 private:
     Player Player1;
     Player Player2;
+    Deck mainDeck;
+    Deck field;
 
 };
 

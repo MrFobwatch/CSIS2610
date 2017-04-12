@@ -9,8 +9,19 @@
 
 #include "Deck.h"
 
-Deck::Deck(int size) {
-    deckCards.reserve(size);
+Deck::Deck() {
 }
 
+void Deck::shuffleDeck() {
+    std::random_shuffle(deckCards.begin(), deckCards.end());
+}
 
+void Deck::appendCard(Card card) {
+    deckCards.push_back(card);
+}
+
+Card Deck::removeCard() {
+    Card topCard = deckCards.front();
+    deckCards.pop_front();
+    return topCard;
+}
