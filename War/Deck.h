@@ -9,16 +9,20 @@
 
 #ifndef DECK_H
 #define DECK_H
-#include"Card.h"
+#include <vector>
+#include "Card.h"
 
 class Deck {
+    
 public:
     Deck(int size);
-    
+    void shuffleDeck();
+    Card removeCard();
+    void appendCard(Card card);
     
 private:
     int size;
-    Card deck[52];
+    std::vector<Card> deckCards;
 };
 
 #endif /* DECK_H */

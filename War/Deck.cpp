@@ -10,7 +10,7 @@
 #include "Deck.h"
 
 Deck::Deck(int size) {
-
+    deckCards.reserve(size);
 }
 
 

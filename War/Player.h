@@ -16,8 +16,8 @@ public:
     Player();
     
 private:
-    Deck draw;
-    Deck bounty = Deck();
+//    Deck draw;
+//    Deck bounty;
     
 };
 

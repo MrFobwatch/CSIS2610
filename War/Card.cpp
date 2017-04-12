@@ -23,6 +23,6 @@ int Card::getNumber(){
     return number;
 }
 
-int Card::getSuit(){
+char Card::getSuit(){
     return suit;
 }

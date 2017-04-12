@@ -10,11 +10,5 @@
 #include "War.h"
 
 War::War() {
+    
 }
-
-War::War(const War& orig) {
-}
-
-War::~War() {
-}
-
