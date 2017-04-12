@@ -22,7 +22,8 @@ TicTacToe::TicTacToe() {
     
     playerOneWin = false;
     playerTwoWin = false;
-    turnCounter = 0;    
+    turnCounter = 0;
+    marker = 'X';
 }
 
 void TicTacToe::displayBoard() {
@@ -86,10 +87,10 @@ void TicTacToe::userInput() {
 
 void TicTacToe::swapMarker() {
     if (turnCounter % 2 == 1) {
-        marker = 'X';
+        marker = 'O';
     }
     else {
-        marker = 'O';
+        marker = 'X';
     } 
 }
 
@@ -108,14 +109,14 @@ void TicTacToe::checkWin() {
     turnCounter++;
     
     if(turnCounter >= 5) {
-        if((position1 == position2 == position3)  == marker||
-                position4 == position5 == position6 == marker||
-                position7 == position8 == position9 == marker||
-                position1 == position4 == position7 == marker||
-                position2 == position5 == position8 == marker||
-                position3 == position6 == position9 == marker||
-                position1 == position5 == position9 == marker||
-                position3 == position5 == position7 == marker) {
+        if(((position1 == position2) & (position2 == position3)) ||
+                ((position4 == position5) & (position5 == position6)) ||
+                ((position7 == position8) & (position8 == position9)) ||
+                ((position1 == position4) & (position4 == position7)) ||
+                ((position2 == position5) & (position5 == position8)) ||
+                ((position3 == position6) & (position6 == position9)) ||
+                ((position1 == position5) & (position5 == position9)) ||
+                ((position3 == position5) & (position5 == position7))) {
             if(marker == 'X') {
                 playerOneWin = true;
                 end = true;
