@@ -16,9 +16,10 @@ public:
     War();
     void createMainDeck();
     void separateMainDeck();
-    void displayRound();
+    void displayField();
     void turn();
     Player roundWinner();
+    
     
     
 private:
