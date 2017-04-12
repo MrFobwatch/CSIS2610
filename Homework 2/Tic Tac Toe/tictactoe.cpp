@@ -24,6 +24,7 @@ TicTacToe::TicTacToe() {
     playerTwoWin = false;
     turnCounter = 0;
     marker = 'X';
+    end = false;
 }
 
 void TicTacToe::displayBoard() {
@@ -140,7 +141,7 @@ void TicTacToe::outputResult() {
     else if (playerTwoWin == true) {
         cout << "Player TWO is the WINNER!!!!" << endl;
     }
-    else {
+    else if (end == true && ! playerOneWin && ! playerTwoWin){
         cout << "NO WINNER! :'(" << endl;
     }
 }
