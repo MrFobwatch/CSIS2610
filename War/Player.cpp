@@ -12,11 +12,8 @@ Player::Player() {
     
 }
 
-void Player::setBounty(Deck bounty) {
-    this->bounty = bounty;
-}
 
-Deck Player::getBounty(){
+Deck Player::getBounty() const {
     return bounty;
 }
 
@@ -27,16 +24,17 @@ void Player::setDraw(Deck draw) {
 Deck Player::getDraw() const {
     return draw;
 }
+
 Card Player::playCard() {
    return draw.removeTopCard();
 }
 
-//void Player::collectWinnings(Deck field) {
-//    for (int i=0; i < field.size(); i++) {
-//        bounty.appendCard(field.front());
-//    }
-//}
+void Player::addToBounty(Card card) {
+    bounty.addTop(card);
+}
 
-void Player::fillDraw(Deck fill) {
-    draw.swap(fill);
+void Player::refillDraw(Deck fill) {
+    draw.setDeckCards(bounty.getDeckCards());
+    bounty.clear();
+    draw.shuffleDeck();
 }

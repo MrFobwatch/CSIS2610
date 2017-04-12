@@ -24,13 +24,28 @@ void Deck::shuffleDeck() {
     std::random_shuffle(deckCards.begin(), deckCards.end());
 }
 
-//void Deck::push_back(Card card) {
-//    deckCards.push_back(card);
-
 Card Deck::removeTopCard() {
     Card topCard = deckCards.front();
     deckCards.pop_front();
     return topCard;
+}
+
+Card Deck::removeBottomCard() {
+    Card bottomCard = deckCards.back();
+    deckCards.pop_back();
+    return bottomCard;
+}
+
+Card Deck::top() {
+    return deckCards.front();
+}
+
+Card Deck::bottom() {
+    return deckCards.back();
+}
+
+void Deck::clear() {
+    deckCards.clear();
 }
 
 int Deck::size() {

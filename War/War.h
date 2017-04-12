@@ -15,11 +15,15 @@ class War {
 public:
     War();
     void createMainDeck();
+    void setField(Deck field);
+    Deck getField() const;    
     void separateMainDeck();
     void collectPlayerCards();
+    void returnWinnings(Player player);
     void displayField();
     Player roundWinner();
-    void turn();    
+    void turn();
+    
     
 private:
     Player Player1;

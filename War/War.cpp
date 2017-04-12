@@ -15,7 +15,7 @@ War::War() {
 
 void War::createMainDeck() {
     for (int suit=0; suit<4; suit++) {
-        for(int num=1; num<14; num++) {
+        for(int num=2; num<15; num++) {
             Card newCard;
             newCard.setNumber(num);
             switch (suit) {
@@ -32,9 +32,17 @@ void War::createMainDeck() {
                     newCard.setSuit('D');
                     break;                
             }
-            mainDeck.appendCard(newCard);                            
+            mainDeck.addBottom(newCard);                            
         }
     }
+}
+
+void War::setField(Deck field) {
+    this->field = field;
+}
+
+Deck War::getField() const {
+    return field;
 }
 
 void War::separateMainDeck() {
@@ -42,15 +50,16 @@ void War::separateMainDeck() {
 }
 
 void War::collectPlayerCards() {
-    field.push_front(Player1.playCard());
-    field.push_back(Player2.playCard());
+    field.addTop(Player1.playCard());
+    field.addBottom(Player2.playCard());
 }
 
-void War::collectWinnings(Player player) {
+void War::returnWinnings(Player player) {
     for (int i=0; i < field.size(); i++) {
-        player->bounty.appendCard(field.front());
+        player.addToBounty(field.removeTopCard());
     }
 }
+
 void War::displayField() {
         
 }
