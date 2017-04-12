@@ -22,7 +22,10 @@ public:
     void returnWinnings(Player player);
     void displayField();
     Player roundWinner();
+    bool checkWon();
     void turn();
+    void start();
+
     
     
 private:

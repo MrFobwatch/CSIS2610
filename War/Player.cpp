@@ -26,14 +26,20 @@ Deck Player::getDraw() const {
 }
 
 Card Player::playCard() {
-   return draw.removeTopCard();
+    if (draw.size() > 0) {
+      return draw.removeTopCard();  
+    }
+    else {
+        refillDraw();
+        std::cout << "Your cards are being refilled." << std::endl;
+    }
 }
 
 void Player::addToBounty(Card card) {
-    bounty.addTop(card);
+    bounty.addTopCard(card);
 }
 
-void Player::refillDraw(Deck fill) {
+void Player::refillDraw() {
     draw.setDeckCards(bounty.getDeckCards());
     bounty.clear();
     draw.shuffleDeck();

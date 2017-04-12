@@ -7,7 +7,7 @@
  */
 
 #include "Deck.h"
-
+#include <iostream>
 #ifndef PLAYER_H
 #define PLAYER_H
 
@@ -20,7 +20,7 @@ public:
     Deck getDraw() const;
     Card playCard();
     void addToBounty(Card card);
-    void refillDraw(Deck fill);
+    void refillDraw();
     void emptyBounty();
     
 private:

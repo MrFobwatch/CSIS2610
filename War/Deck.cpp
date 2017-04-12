@@ -36,12 +36,20 @@ Card Deck::removeBottomCard() {
     return bottomCard;
 }
 
-Card Deck::top() {
+Card Deck::topCard() {
     return deckCards.front();
 }
 
-Card Deck::bottom() {
+Card Deck::bottomCard() {
     return deckCards.back();
+}
+
+void Deck::addTopCard(Card card) {
+    deckCards.push_front(card);
+}
+
+void Deck::addBottomCard(Card card) {
+    deckCards.push_back(card);
 }
 
 void Deck::clear() {

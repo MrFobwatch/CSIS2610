@@ -15,10 +15,11 @@ public:
     Card();
     void setNumber(int number);
     void setSuit(char suit);
-    void setName(char name);
+    void setName();
     int getNumber();
     char getSuit();  
     char getName();
+    
 private:
     char suit;
     int number;

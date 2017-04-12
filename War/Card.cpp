@@ -26,3 +26,24 @@ int Card::getNumber(){
 char Card::getSuit(){
     return suit;
 }
+
+void Card::setName(){
+    int num = getNumber();
+    if(number >= 11){
+        if(number == 11){
+            this->name=('J');
+        }
+        if(number==12){
+            this->name=('Q');
+        }
+        if(number==13){
+            this->name=('K');
+        }
+        if(number==14){
+            this->name=('A');
+        }
+    }
+    else {
+        this->name = static_cast<char>(number);
+    }   
+}

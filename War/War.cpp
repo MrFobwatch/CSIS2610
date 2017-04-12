@@ -32,7 +32,7 @@ void War::createMainDeck() {
                     newCard.setSuit('D');
                     break;                
             }
-            mainDeck.addBottom(newCard);                            
+            mainDeck.addBottomCard(newCard);                            
         }
     }
 }
@@ -46,12 +46,20 @@ Deck War::getField() const {
 }
 
 void War::separateMainDeck() {
-    
+    mainDeck.shuffleDeck();
+    Deck Player1Deck;
+    Deck Player2Deck;
+    for (int i=0; i<(mainDeck.size()/2); i++) {
+        Player1Deck.addTopCard(mainDeck.removeTopCard());
+        Player2Deck.addTopCard(mainDeck.removeTopCard());                
+    }
+    Player1.setDraw(Player1Deck);
+    Player2.setDraw(Player2Deck);
 }
 
 void War::collectPlayerCards() {
-    field.addTop(Player1.playCard());
-    field.addBottom(Player2.playCard());
+    field.addTopCard(Player1.playCard());
+    field.addBottomCard(Player2.playCard());
 }
 
 void War::returnWinnings(Player player) {
@@ -65,10 +73,42 @@ void War::displayField() {
 }
 
 Player War::roundWinner() {
-    
+    Player roundWinner;
+    Card card1 = field.topCard();
+    Card card2 = field.bottomCard();
+    if (card1.getNumber() == card2.getNumber()) {
+        collectPlayerCards();
+        collectPlayerCards();
+        void roundWinner();
+    }
+    else if(card1.getNumber() > card2.getNumber()) {
+        roundWinner = Player1;
+    }
+    else if(card1.getNumber() < card2.getNumber()) {
+        roundWinner = Player2;
+    }
+    return roundWinner;
 }
 
-void War::turn(){
+bool War::checkWon() {
     
+}
+void War::turn(){
+    collectPlayerCards();
+    displayField();
+    returnWinnings(roundWinner());    
+}
+
+void War::start(){
+    createMainDeck();
+    separateMainDeck();
+    bool condition = true;
+    while(condition == true){
+        displayField();
+        turn();
+        if(checkWon()) {
+            condition = false;
+        }
+    }
 }
 

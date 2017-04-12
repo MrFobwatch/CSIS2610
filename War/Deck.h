@@ -22,10 +22,10 @@ public:
     void shuffleDeck();
     Card removeTopCard();
     Card removeBottomCard();
-    Card top();
-    Card bottom();
-    void addBottom(Card card);
-    void addTop(Card card);
+    Card topCard();
+    Card bottomCard();
+    void addBottomCard(Card card);
+    void addTopCard(Card card);
     void clear();
     int size();
     

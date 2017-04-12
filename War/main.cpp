@@ -8,13 +8,13 @@
 
 #include <cstdlib>
 
+#include "War.h"
 
 using namespace std;
 
 int main() {
-    
-    
-
+    War war;
+    war.start();
     return 0;
 }
 
