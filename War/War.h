@@ -19,7 +19,7 @@ public:
     Deck getField() const;    
     void separateMainDeck();
     void collectPlayerCards();
-    void returnWinnings(Player player);
+    void returnWinnings();
     void displayField();
     Player roundWinner();
     bool checkWon();
