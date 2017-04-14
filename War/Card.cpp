@@ -28,23 +28,25 @@ char Card::getSuit(){
 }
 
 void Card::setName(){
-//    int num = getNumber();
-    if(number >= 11){
-        if(number == 11){
+    if(number >= 10){
+        if(number == 10) {
+            name=('T');
+        }
+        else if(number == 11){
             name=('J');
         }
-        if(number==12){
+        else if(number==12){
             name=('Q');
         }
-        if(number==13){
+        else if(number==13){
             name=('K');
         }
-        if(number==14){
+        else if(number==14){
             name=('A');
         }
     }
     else {
-        name = number;
+        name = number + 48;
     }   
 }
 

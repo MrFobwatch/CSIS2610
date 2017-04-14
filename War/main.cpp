@@ -14,14 +14,7 @@ using namespace std;
 
 int main() {
     War war;
-//    war.start();
-    war.createMainDeck();
-    war.separateMainDeck();
-    war.collectPlayerCards();
-    war.displayField();
-    war.turn();
-    war.displayField();
-    war.turn();
+    war.start();
     return 0;
 }
 

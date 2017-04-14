@@ -61,9 +61,9 @@ int Deck::size() {
 }
 
 void Deck::printTopCard() {
-    std::cout << "\t" << getTopCard().getName() << "of" << getTopCard().getSuit();
+    std::cout << getTopCard().getName() << "of" << getTopCard().getSuit();
 }
 
 void Deck::printBottomCard() {
-    std::cout << "\t" << getBottomCard().getName() << "of" << getBottomCard().getSuit();
+    std::cout << getBottomCard().getName() << "of" << getBottomCard().getSuit();
 }

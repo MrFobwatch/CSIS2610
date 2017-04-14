@@ -67,13 +67,14 @@ void War::returnWinnings(Player player) {
     for (int i=0; i < field.size(); i++) {
         player.addToBounty(field.removeTopCard());
     }
+    field.clear();
 }
 
 void War::displayField() {
     std::cout << "\t Player One Card" << "\t" << "\t Player Two Card" << std::endl;
     std::cout << "\t";
     field.printTopCard();
-    std::cout << "\t \t";
+    std::cout << "\t \t \t";
     field.printBottomCard();
     std::cout << std::endl;
 }
@@ -102,21 +103,24 @@ bool War::checkWon() {
 void War::turn(){
     collectPlayerCards();
     displayField();
-    returnWinnings(roundWinner());    
+    returnWinnings(roundWinner());
+    std::cout << "\t Deck Size = " << Player1.getDraw().size();
+    std::cout << "\t \t Deck Size = " << Player2.getDraw().size() << std::endl;
 }
 
 void War::start(){
     createMainDeck();
     separateMainDeck();
-    bool condition = true;
-    int counter = 0;
-    while(condition == true){
+//    bool condition = true;
+//    while(condition == true){
+        
+    for(int i=0; i< 10; i++) {
         displayField();
         turn();
-        counter++;
-        if(counter==50) {
-            condition = false;
-        }
     }
+//        if(checkWon()) {
+//            condition = false;
+//        }
+//    }
 }
 
