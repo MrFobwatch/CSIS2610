@@ -13,6 +13,7 @@
 class Card {
 public:
     Card();
+    Card(char suit, int number);
     void setNumber(int number);
     void setSuit(char suit);
     void setName();

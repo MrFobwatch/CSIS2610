@@ -36,11 +36,11 @@ Card Deck::removeBottomCard() {
     return bottomCard;
 }
 
-Card Deck::topCard() {
+Card Deck::getTopCard() {
     return deckCards.front();
 }
 
-Card Deck::bottomCard() {
+Card Deck::getBottomCard() {
     return deckCards.back();
 }
 
@@ -57,5 +57,13 @@ void Deck::clear() {
 }
 
 int Deck::size() {
-    deckCards.size();
+    return deckCards.size();
+}
+
+void Deck::printTopCard() {
+    std::cout << "\t" << getTopCard().getName() << "of" << getTopCard().getSuit();
+}
+
+void Deck::printBottomCard() {
+    std::cout << "\t" << getBottomCard().getName() << "of" << getBottomCard().getSuit();
 }

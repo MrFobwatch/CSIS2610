@@ -32,6 +32,7 @@ void War::createMainDeck() {
                     newCard.setSuit('D');
                     break;                
             }
+            newCard.setName();
             mainDeck.addBottomCard(newCard);                            
         }
     }
@@ -69,13 +70,18 @@ void War::returnWinnings(Player player) {
 }
 
 void War::displayField() {
-        
+    std::cout << "\t Player One Card" << "\t" << "\t Player Two Card" << std::endl;
+    std::cout << "\t";
+    field.printTopCard();
+    std::cout << "\t \t";
+    field.printBottomCard();
+    std::cout << std::endl;
 }
 
 Player War::roundWinner() {
     Player roundWinner;
-    Card card1 = field.topCard();
-    Card card2 = field.bottomCard();
+    Card card1 = field.getTopCard();
+    Card card2 = field.getBottomCard();
     if (card1.getNumber() == card2.getNumber()) {
         collectPlayerCards();
         collectPlayerCards();
@@ -91,7 +97,7 @@ Player War::roundWinner() {
 }
 
 bool War::checkWon() {
-    
+    return true;
 }
 void War::turn(){
     collectPlayerCards();
@@ -103,10 +109,12 @@ void War::start(){
     createMainDeck();
     separateMainDeck();
     bool condition = true;
+    int counter = 0;
     while(condition == true){
         displayField();
         turn();
-        if(checkWon()) {
+        counter++;
+        if(counter==50) {
             condition = false;
         }
     }

@@ -11,6 +11,7 @@
 #define DECK_H
 #include <deque>
 #include <algorithm>
+#include <iostream>
 #include "Card.h"
 
 class Deck {
@@ -22,15 +23,16 @@ public:
     void shuffleDeck();
     Card removeTopCard();
     Card removeBottomCard();
-    Card topCard();
-    Card bottomCard();
+    Card getTopCard();
+    Card getBottomCard();
     void addBottomCard(Card card);
     void addTopCard(Card card);
     void clear();
     int size();
+    void printTopCard();
+    void printBottomCard();
     
 private:
-
     std::deque<Card> deckCards;
 };
 
