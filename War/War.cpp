@@ -59,6 +59,10 @@ void War::separateMainDeck() {
 }
 
 void War::collectPlayerCards() {
+//    int wait;
+    std::cout << "Press Enter to take your turn \n";
+//    std::cin >> wait;
+    std::cin.ignore();
     field.addTopCard(Player1.playCard());
     field.addBottomCard(Player2.playCard());
 }
@@ -78,10 +82,10 @@ void War::returnWinnings() {
 }
 
 void War::displayField() {
-    std::cout << " Player One Card" << "\t" << "\t Player Two Card" << std::endl;
-//    std::cout << "\t";
+    std::cout << "Player One Card" << "\t" << "\t Player Two Card" << std::endl;
+    std::cout << "\t";
     field.printTopCard();
-    std::cout << "\t \t \t";
+    std::cout << "\t \t \t ";
     field.printBottomCard();
     std::cout << std::endl;
 }
@@ -91,21 +95,34 @@ int War::roundWinner() {
     Card card1 = field.getTopCard();
     Card card2 = field.getBottomCard();
     if (card1.getNumber() == card2.getNumber()) {
+        std::cout << "\t \t WAR!" << std::endl;
         collectPlayerCards();
         collectPlayerCards();
+        displayField();
         void roundWinner();
     }
     else if(card1.getNumber() > card2.getNumber()) {
+        std::cout << "\t     Player 1 Wins" << std::endl;
         roundWinner = 1;
     }
     else if(card1.getNumber() < card2.getNumber()) {
+        std::cout << "\t     Player 2 Wins" << std::endl;
         roundWinner = 2;
     }
     return roundWinner;
 }
 
 bool War::checkWon() {
-    return true;
+    bool isWinner = false;
+    if (((Player1.getDraw().size() + Player1.getBounty().size()) == 52) && (Player2.getDraw().size() + Player2.getBounty().size() == 0)) {
+        isWinner = true;
+        std::cout << "Player 1 has all the cards and is the Winner!" << std::endl;
+    }
+    else if (((Player2.getDraw().size() + Player2.getBounty().size()) == 52) && (Player1.getDraw().size() + Player1.getBounty().size() == 0)) {
+        isWinner = true;
+        std::cout << "Player 2 has all the cards and is the Winner!" << std::endl;
+    }
+    return isWinner;
 }
 void War::turn(){
     collectPlayerCards();
@@ -118,16 +135,11 @@ void War::turn(){
 void War::start(){
     createMainDeck();
     separateMainDeck();
-//    bool condition = true;
-//    while(condition == true){
-    turn();
-    for(int i=0; i< 15; i++) {
-//        displayField();
+    while(checkWon() == false){
         turn();
-    }
 //        if(checkWon()) {
 //            condition = false;
 //        }
-//    }
+    }
 }
 
