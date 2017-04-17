@@ -21,12 +21,10 @@ public:
     void collectPlayerCards();
     void returnWinnings();
     void displayField();
-    Player roundWinner();
+    int roundWinner();
     bool checkWon();
     void turn();
     void start();
-
-    
     
 private:
     Player Player1;

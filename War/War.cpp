@@ -64,25 +64,30 @@ void War::collectPlayerCards() {
 }
 
 void War::returnWinnings() {
-    Player winner;
+    int winner;
     winner = roundWinner();
-    for (int i=0; i < field.size(); i++) {
-        winner.addToBounty(field.removeTopCard());
+    for (int i=0; i <= field.size(); i++) {
+        if(winner == 1) {
+            Player1.addToBounty(field.removeTopCard());
+        }
+        else if(winner == 2) {
+            Player2.addToBounty(field.removeTopCard());
+        };
     }
     field.clear();
 }
 
 void War::displayField() {
-    std::cout << "\t Player One Card" << "\t" << "\t Player Two Card" << std::endl;
-    std::cout << "\t";
+    std::cout << " Player One Card" << "\t" << "\t Player Two Card" << std::endl;
+//    std::cout << "\t";
     field.printTopCard();
     std::cout << "\t \t \t";
     field.printBottomCard();
     std::cout << std::endl;
 }
 
-Player War::roundWinner() {
-    Player roundWinner;
+int War::roundWinner() {
+    int roundWinner;
     Card card1 = field.getTopCard();
     Card card2 = field.getBottomCard();
     if (card1.getNumber() == card2.getNumber()) {
@@ -91,10 +96,10 @@ Player War::roundWinner() {
         void roundWinner();
     }
     else if(card1.getNumber() > card2.getNumber()) {
-        roundWinner = Player1;
+        roundWinner = 1;
     }
     else if(card1.getNumber() < card2.getNumber()) {
-        roundWinner = Player2;
+        roundWinner = 2;
     }
     return roundWinner;
 }
@@ -106,8 +111,8 @@ void War::turn(){
     collectPlayerCards();
     displayField();
     returnWinnings();
-    std::cout << "\t Deck Size = " << Player1.getDraw().size();
-    std::cout << "\t \t Deck Size = " << Player2.getDraw().size() << std::endl;
+    std::cout << "Deck Size = " << Player1.getDraw().size();
+    std::cout << "\t \t Deck Size = " << Player2.getDraw().size() << std::endl << std::endl;
 }
 
 void War::start(){
@@ -117,7 +122,7 @@ void War::start(){
 //    while(condition == true){
     turn();
     for(int i=0; i< 15; i++) {
-        displayField();
+//        displayField();
         turn();
     }
 //        if(checkWon()) {
