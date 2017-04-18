@@ -25,14 +25,21 @@ Deck Player::getDraw() const {
     return draw;
 }
 
+Deck Player::getHand() const {
+    return hand;
+}
+
+void Player::setHand() {
+    
+}
 Card Player::playCard() {
     Card playedCard;
     if (draw.size() > 0) {
       playedCard = draw.removeTopCard();
     }
-    else if(draw.size() == 0) {
-        refillDraw();
+    else if((draw.size() == 0) &&( bounty.size() != 0)) {
         std::cout << "Your cards are being refilled." << std::endl;
+        refillDraw();
         playedCard = playCard();
     }
     return playedCard;
@@ -43,7 +50,9 @@ void Player::addToBounty(Card card) {
 }
 
 void Player::refillDraw() {
-    draw.setDeckCards(bounty.getDeckCards());
-    bounty.clear();
-    draw.shuffleDeck();
+    if (getBounty().size() > 0) {
+        draw.setDeckCards(bounty.getDeckCards());
+        bounty.clear();
+        draw.shuffleDeck();
+    }
 }

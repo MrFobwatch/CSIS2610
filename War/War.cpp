@@ -10,7 +10,7 @@
 #include "War.h"
 
 War::War() {
-    
+    srand(time(NULL));
 }
 
 void War::createMainDeck() {
@@ -50,7 +50,7 @@ void War::separateMainDeck() {
     mainDeck.shuffleDeck();
     Deck Player1Deck;
     Deck Player2Deck;
-    for (int i=0; i<(mainDeck.size()/2); i++) {
+    for (int i=0; i<26; i++) {
         Player1Deck.addTopCard(mainDeck.removeTopCard());
         Player2Deck.addTopCard(mainDeck.removeTopCard());                
     }
@@ -59,10 +59,8 @@ void War::separateMainDeck() {
 }
 
 void War::collectPlayerCards() {
-//    int wait;
     std::cout << "Press Enter to take your turn \n";
-//    std::cin >> wait;
-    std::cin.ignore();
+//    std::cin.ignore();
     field.addTopCard(Player1.playCard());
     field.addBottomCard(Player2.playCard());
 }
@@ -70,7 +68,8 @@ void War::collectPlayerCards() {
 void War::returnWinnings() {
     int winner;
     winner = roundWinner();
-    for (int i=0; i <= field.size(); i++) {
+    int size = field.size();
+    for (int i=0; i < size; i++) {
         if(winner == 1) {
             Player1.addToBounty(field.removeTopCard());
         }
@@ -91,7 +90,7 @@ void War::displayField() {
 }
 
 int War::roundWinner() {
-    int roundWinner;
+    int winnerOfRound;
     Card card1 = field.getTopCard();
     Card card2 = field.getBottomCard();
     if (card1.getNumber() == card2.getNumber()) {
@@ -99,47 +98,48 @@ int War::roundWinner() {
         collectPlayerCards();
         collectPlayerCards();
         displayField();
-        void roundWinner();
+        winnerOfRound = roundWinner();
     }
     else if(card1.getNumber() > card2.getNumber()) {
         std::cout << "\t     Player 1 Wins" << std::endl;
-        roundWinner = 1;
+        winnerOfRound = 1;
     }
     else if(card1.getNumber() < card2.getNumber()) {
         std::cout << "\t     Player 2 Wins" << std::endl;
-        roundWinner = 2;
+        winnerOfRound = 2;
     }
-    return roundWinner;
+    return winnerOfRound;
 }
 
 bool War::checkWon() {
     bool isWinner = false;
-    if (((Player1.getDraw().size() + Player1.getBounty().size()) == 52) && (Player2.getDraw().size() + Player2.getBounty().size() == 0)) {
-        isWinner = true;
-        std::cout << "Player 1 has all the cards and is the Winner!" << std::endl;
-    }
-    else if (((Player2.getDraw().size() + Player2.getBounty().size()) == 52) && (Player1.getDraw().size() + Player1.getBounty().size() == 0)) {
+    if (((Player1.getDraw().size() == 0 )&& (Player1.getBounty().size()) == 0)) {
         isWinner = true;
         std::cout << "Player 2 has all the cards and is the Winner!" << std::endl;
     }
+    else if (((Player1.getDraw().size() == 0) && (Player1.getBounty().size()) == 0))  {
+        isWinner = true;
+        std::cout << "Player 1 has all the cards and is the Winner!" << std::endl;
+    }
     return isWinner;
 }
+
 void War::turn(){
     collectPlayerCards();
     displayField();
     returnWinnings();
     std::cout << "Deck Size = " << Player1.getDraw().size();
-    std::cout << "\t \t Deck Size = " << Player2.getDraw().size() << std::endl << std::endl;
+    std::cout << "\t \t Deck Size = " << Player2.getDraw().size() << std::endl;
+    std::cout << "Bounty Size = " << Player1.getBounty().size();
+    std::cout << "\t \tBounty Size = " << Player2.getBounty().size() << "\n \n \n" << std::endl;
 }
 
 void War::start(){
     createMainDeck();
     separateMainDeck();
+    turn();
     while(checkWon() == false){
         turn();
-//        if(checkWon()) {
-//            condition = false;
-//        }
     }
 }
 

@@ -12,6 +12,7 @@
 #include <deque>
 #include <algorithm>
 #include <iostream>
+#include <ctime>
 #include "Card.h"
 
 class Deck {

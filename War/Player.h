@@ -14,7 +14,8 @@
 class Player {
 public:
     Player();
-    
+    Deck getHand();
+    void setHand();
     Deck getBounty() const;
     void setDraw(Deck draw);
     Deck getDraw() const;
@@ -26,6 +27,7 @@ public:
 private:
     Deck draw;
     Deck bounty;
+    Deck hand;
     
 };
 
