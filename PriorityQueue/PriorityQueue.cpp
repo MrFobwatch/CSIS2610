@@ -53,7 +53,7 @@ void PriorityQueue::outputSum(){
 void PriorityQueue::start(){
     for(int i=0; i<10; i++){
         Element element;
-        elements[i] = element;
+      addElementToQueue(element);
     }
     sortQueue();
     outputQueue();

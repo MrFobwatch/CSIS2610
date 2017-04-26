@@ -19,6 +19,7 @@ public:
     void outputQueue();
     void outputSum();
     void start();
+
 private:
     Element elements[10];
     int size;
