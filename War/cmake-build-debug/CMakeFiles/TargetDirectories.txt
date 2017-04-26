@@ -1,0 +1,3 @@
+C:/Users/Kevin/Git/CSIS2610/War/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Kevin/Git/CSIS2610/War/cmake-build-debug/CMakeFiles/War.dir
+C:/Users/Kevin/Git/CSIS2610/War/cmake-build-debug/CMakeFiles/edit_cache.dir
