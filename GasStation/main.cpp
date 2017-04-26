@@ -13,9 +13,10 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
+    srand(time(NULL));
     GasStation gasStation;
 //    Car car;
-    gasStation.simulate(1000);
+    gasStation.simulate(500);
     
     std::cout<< "Total Revenue: " << gasStation.getTotalRevenue() << std::endl;
     std::cout<< "Total Gallons: " << gasStation.getTotalGallons() << std::endl;

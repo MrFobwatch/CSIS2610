@@ -11,7 +11,7 @@ GasStation::GasStation() {
     price=2;
     totalRevenue=0;
     totalGallons=0;
-    fullReservoir=rand()%7000+8000;
+    fullReservoir=rand()%8000+8000;
     currentReservoir = fullReservoir;
 }
 
@@ -24,12 +24,16 @@ GasStation::GasStation() {
 void GasStation::simulate(int numCars){
     Car cars[numCars];
     for(int i=0;i<numCars;i++){
-        if(currentReservoir > 14){
+        if(currentReservoir > cars[i].getTankSize()){
             fillCar(cars[i]);
         }
-        else {
-            std::cout<< "NO MORE GAS :(" << std::endl;
+        else if(currentReservoir < cars[i].getTankSize()) {
+            std::cout << "NO MORE GAS :(\n";
         }
+        if((i+1==numCars)) {
+            std::cout << "All Cars Filled :)\n";
+        }
+        
     }
 }
 

@@ -8,7 +8,7 @@
 #include "Car.h"
 
 Car::Car() {
-    setTankSize(rand()%15+15);
+    setTankSize(rand()%16+15);
 }
 
 //Car::Car(const Car& orig) {
